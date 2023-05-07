@@ -1,6 +1,5 @@
 import { TITLE_TEXT } from "@/const.js";
 import gradient from "gradient-string";
-import { getUserPkgManager } from "./getPackageManager.js";
 
 const colorPallete = {
   light: "#00b4d8",
@@ -15,7 +14,5 @@ export const renderTitle = () => {
     TITLE_TEXT
   );
 
-  console.log(getUserPkgManager());
-  console.log("\n\n");
   console.log(gradientTitle);
 };
