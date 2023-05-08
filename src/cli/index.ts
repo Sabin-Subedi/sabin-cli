@@ -26,11 +26,12 @@ interface CLIResults {
   flags: CliFlags;
 }
 
-const defaultOptions = {
+const defaultOptions: CLIResults = {
   appName: "my-package",
   appDescription: "My package description",
   packageManager: "npm",
   language: "typescript",
+  packages: [],
   flags: {
     noGit: true,
     noInstall: true,

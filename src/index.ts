@@ -1,12 +1,23 @@
 import { runCli } from "./cli/index.js";
+import { createProject } from "./helpers/createProject.js";
 import { logger } from "./utils/logger.js";
 import { renderTitle } from "./utils/renderTitle.js";
 
 const main = async () => {
   renderTitle();
 
-  const val = await runCli();
-  console.log(val);
+  const {
+    appName,
+    flags: { noInstall },
+    packageManager,
+  } = await runCli();
+
+  await createProject({
+    projectName: appName,
+
+    noInstall: noInstall,
+    packageManager,
+  });
   return;
 };
 
