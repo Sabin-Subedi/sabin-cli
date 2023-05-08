@@ -1,5 +1,6 @@
 // Turning this into a const allows the list to be iterated over for programatically creating prompt options
 
+import { Language } from "@/cli/index.js";
 import { type PackageManager } from "@/utils/getPackageManager.js";
 
 // Should increase extensability in the future
@@ -12,6 +13,7 @@ export interface InstallerOptions {
   pkgManager: PackageManager;
   noInstall: boolean;
   projectName?: string;
+  language?: Language;
   packages?: PkgInstallerMap;
 }
 

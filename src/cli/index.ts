@@ -9,7 +9,7 @@ import { validateAppName } from "@/utils/validators/appNameValidator.js";
 import { Command } from "commander";
 import inquirer from "inquirer";
 
-type Language = "typescript" | "javascript";
+export type Language = "typescript" | "javascript";
 interface CliFlags {
   noGit: boolean;
   noInstall: boolean;

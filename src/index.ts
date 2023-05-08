@@ -10,11 +10,12 @@ const main = async () => {
     appName,
     flags: { noInstall },
     packageManager,
+    language,
   } = await runCli();
 
   await createProject({
     projectName: appName,
-
+    language,
     noInstall: noInstall,
     packageManager,
   });
