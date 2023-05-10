@@ -1,9 +1,11 @@
+import { PROJECT_ROOT } from "@/const.js";
 import { InstallerOptions } from "@/installer/index.js";
 import { logger } from "@/utils/logger.js";
 import chalk from "chalk";
 import fs from "fs-extra";
 import inquirer from "inquirer";
 import ora from "ora";
+import path from "path";
 
 export const createBaseProject = async ({
   noInstall,
@@ -12,6 +14,7 @@ export const createBaseProject = async ({
   pkgManager,
   projectName,
 }: InstallerOptions) => {
+  const srcDir = path.join(PROJECT_ROOT, "templates/base");
   if (!noInstall) {
     logger.info(
       `\n Using: ${chalk.cyan.bold(pkgManager)} to install packages...`
@@ -92,6 +95,11 @@ export const createBaseProject = async ({
 
   spinner.start();
   fs.mkdirSync(projectDir, { recursive: true });
+  fs.copySync(srcDir, projectDir);
+  fs.renameSync(
+    path.join(projectDir, "_gitignore"),
+    path.join(projectDir, ".gitignore")
+  );
 
   const createdProjectName =
     projectName === "." ? "App" : chalk.cyan.bold(projectName);

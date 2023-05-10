@@ -21,7 +21,6 @@ interface CLIResults {
   appName: string;
   appDescription: string;
   packageManager: PackageManager;
-  language: Language;
   packages: string[];
   flags: CliFlags;
 }
@@ -30,7 +29,6 @@ const defaultOptions: CLIResults = {
   appName: "my-package",
   appDescription: "My package description",
   packageManager: "npm",
-  language: "typescript",
   packages: [],
   flags: {
     noGit: true,
@@ -83,14 +81,16 @@ export const runCli = async () => {
         cliResults.appName = await promptAppName();
       }
 
-      cliResults.language = await promptLanguage();
+      await promptLanguage();
       cliResults.packageManager = await promptPackageManager();
 
       if (!cliResults.flags.noGit) {
         cliResults.flags.noGit = !(await promptGit());
       }
       cliResults.flags["CI/CD"] = await promptCI();
-      cliResults.flags.noInstall = !(await promptInstall());
+      cliResults.flags.noInstall = !(await promptInstall(
+        cliResults.packageManager
+      ));
     }
   } catch (err) {
     if (err instanceof Error && (err as any).isTTYError) {
@@ -163,7 +163,7 @@ export const promptPackageManager = async (): Promise<PackageManager> => {
   return packageManager;
 };
 
-const promptLanguage = async (): Promise<Language> => {
+const promptLanguage = async (): Promise<void> => {
   const { language } = await inquirer.prompt<{ language: Language }>({
     name: "language",
     type: "list",
@@ -173,15 +173,17 @@ const promptLanguage = async (): Promise<Language> => {
       { name: "TypeScript", value: "typescript", short: "TypeScript" },
       { name: "JavaScript", value: "javascr", short: "JavaScript" },
     ],
-    default: defaultOptions.language,
+    default: "typescript",
   });
 
-  return language;
+  if (language === "javascript") {
+    logger.error("Wrong answer. TypeScript will be used instead.");
+  } else {
+    logger.success("Alright. We'll use TypeScript for you!");
+  }
 };
 
-const promptInstall = async (): Promise<boolean> => {
-  const pkgManager = getUserPkgManager();
-
+const promptInstall = async (pkgManager: string): Promise<boolean> => {
   const { install } = await inquirer.prompt<{ install: boolean }>({
     name: "install",
     type: "confirm",

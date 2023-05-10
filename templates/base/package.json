@@ -1,0 +1,23 @@
+{
+  "name": "ts-package",
+  "version": "0.0.0",
+  "author": "",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "keywords": [],
+  "private": true,
+  "scripts": {
+    "lint": "tsc",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.2",
+    "tsup": "^6.7.0",
+    "prettier": "^2.8.8"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
