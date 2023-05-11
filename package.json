@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "create-s2-package": "./dist/index.js"
+  },
   "scripts": {
     "dev": "node dist/index.js",
     "build": "tsup --config ./tsup.config.ts",
