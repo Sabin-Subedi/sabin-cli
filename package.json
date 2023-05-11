@@ -6,7 +6,11 @@
   "type": "module",
   "scripts": {
     "dev": "node dist/index.js",
-    "build": "tsup --config ./tsup.config.ts"
+    "build": "tsup --config ./tsup.config.ts",
+    "lint": "tsc",
+    "test": "",
+    "ci": "pnpm run lint && pnpm run build",
+    "release": "pnpm run lint && pnpm run build && changeset publish"
   },
   "keywords": [],
   "author": "",
