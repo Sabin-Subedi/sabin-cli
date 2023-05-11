@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "exports": "./dist/index.js",
   "bin": {
     "create-s2-package": "./dist/index.js"
   },
