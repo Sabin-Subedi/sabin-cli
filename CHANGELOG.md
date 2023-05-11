@@ -1,5 +1,11 @@
 # create-s2-package
 
+## 0.1.1
+
+### Patch Changes
+
+- 27a0301: bug update
+
 ## 0.1.0
 
 ### Minor Changes
