@@ -1,8 +1,5 @@
 import { CREATE_NPM_PACKAGE, DEFAULT_APP_NAME } from "@/const.js";
-import {
-  PackageManager,
-  getUserPkgManager,
-} from "@/utils/getPackageManager.js";
+import { PackageManager } from "@/utils/getPackageManager.js";
 import getPackageVersion from "@/utils/getPackageVersion.js";
 import { logger } from "@/utils/logger.js";
 import { validateAppName } from "@/utils/validators/appNameValidator.js";

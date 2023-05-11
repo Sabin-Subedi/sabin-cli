@@ -1,3 +1,4 @@
+import { logger } from "@/utils/logger.js";
 import chalk from "chalk";
 import { execSync } from "child_process";
 import { execa } from "execa";
@@ -5,7 +6,6 @@ import fs from "fs-extra";
 import inquirer from "inquirer";
 import ora from "ora";
 import path from "path";
-import { logger } from "@/utils/logger.js";
 
 const isGitInstalled = (dir: string): boolean => {
   try {
