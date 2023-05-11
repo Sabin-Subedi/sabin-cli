@@ -1,5 +1,11 @@
 # create-s2-package
 
+## 0.1.4
+
+### Patch Changes
+
+- 00ed7e8: bug update
+
 ## 0.1.3
 
 ### Patch Changes
