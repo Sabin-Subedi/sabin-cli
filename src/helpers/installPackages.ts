@@ -7,7 +7,7 @@ type InstallPackagesOptions = {
 
 export const installPackages = async (options: InstallPackagesOptions) => {
   const { packages } = options;
-  logger.info("Installing packages...");
+  logger.info("Installing packages..." + packages);
 
   // install packages
 };
