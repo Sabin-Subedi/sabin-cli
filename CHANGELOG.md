@@ -1,5 +1,11 @@
 # create-s2-package
 
+## 0.1.5
+
+### Patch Changes
+
+- 43d350e: fixed npx commmand
+
 ## 0.1.4
 
 ### Patch Changes
