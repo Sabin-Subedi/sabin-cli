@@ -1,5 +1,11 @@
 # create-s2-package
 
+## 0.1.2
+
+### Patch Changes
+
+- 6b24283: minor update
+
 ## 0.1.1
 
 ### Patch Changes
