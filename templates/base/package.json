@@ -10,7 +10,8 @@
   "private": true,
   "scripts": {
     "lint": "tsc",
-    "build": "tsup"
+    "build": "tsup",
+    "test": ""
   },
   "devDependencies": {
     "typescript": "^5.0.2",
