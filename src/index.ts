@@ -1,11 +1,11 @@
 import fs from "fs-extra";
+import path from "path";
+import { PackageJson } from "type-fest";
 import { runCli } from "./cli/index.js";
 import { createProject } from "./helpers/createProject.js";
 import { initializeGit } from "./helpers/initializeGit.js";
 import { logger } from "./utils/logger.js";
 import { renderTitle } from "./utils/renderTitle.js";
-import { PackageJson } from "type-fest";
-import path from "path";
 
 const main = async () => {
   renderTitle();

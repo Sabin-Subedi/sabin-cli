@@ -10,7 +10,7 @@ import path from "path";
 export const createBaseProject = async ({
   noInstall,
   projectDir,
-  packages,
+  // packages,
   pkgManager,
   projectName,
 }: InstallerOptions) => {
